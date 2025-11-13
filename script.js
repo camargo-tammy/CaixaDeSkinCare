@@ -1,51 +1,32 @@
-const body = document.body;
-const codigoCorSpan = document.getElementById('codigoCor');
-const container = document.querySelector('.container');
+// Lista de participantes
+const participantes = ["Maria", "João", "Ana", "Carlos", "Fernanda", "Lucas", "Juliana"];
 
-function gerarNovaCor() {
-    const R = gerarNumeroAleatorio(255);
-    const G = gerarNumeroAleatorio(255);
-    const B = gerarNumeroAleatorio(255);
+// Lista de produtos correspondentes
+const produtos = [
+  "produto1.webp",
+  "produto2.jpeg",
+  "produto3.jpg",
+  "produto4.webp",
+  "produto5.webp",
+  "produto6.webp",
+  "produto7.webp"
+];
 
-    const corHex = converterRGBParaHex(R, G, B);
+let contador = 0;
 
-    body.style.backgroundColor = corHex;
-    codigoCorSpan.textContent = corHex;
+function sortear() {
+  // Mostrar o ganhador
+  document.getElementById("resultado").textContent =
+    "Parabéns, " + participantes[contador] + "! Você ganhou a caixa de skin care!";
 
-    ajustarContrasteSimples(R, G, B);
+  // Mostrar a imagem correspondente
+  const imagem = document.getElementById("produto");
+  imagem.src = produtos[contador];
+  imagem.style.display = "block";
+
+  // Avançar para o próximo participante
+  contador++;
+  if (contador >= participantes.length) {
+    contador = 0; // Reinicia o contador quando chega ao final
+  }
 }
-
-function gerarNumeroAleatorio(maximo) {
-    return Math.floor(Math.random() * (maximo + 1));
-}
-
-function decimalParaHex(decimal) {
-    let hex = decimal.toString(16);
-    
-    if (hex.length === 1) {
-        hex = '0' + hex;
-    }
-    return hex.toUpperCase();
-}
-
-function converterRGBParaHex(r, g, b) {
-    const hexR = decimalParaHex(r);
-    const hexG = decimalParaHex(g);
-    const hexB = decimalParaHex(b);
-
-    return '#' + hexR + hexG + hexB;
-}
-
-function ajustarContrasteSimples(r, g, b) {
-    const media = (r + g + b) / 3;
-
-    if (media < 127) {
-        body.style.color = '#fff';
-        container.style.backgroundColor = 'rgba(0, 0, 0, 0.6)';
-    } else { 
-        body.style.color = '#333';
-        container.style.backgroundColor = 'rgba(255, 255, 255, 0.9)';
-    }
-}
-
-gerarNovaCor();

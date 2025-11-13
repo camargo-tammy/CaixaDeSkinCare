@@ -1,21 +1,19 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gerador de Cores Aleatórias</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sorteio Caixa de Skin Care</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-    <div class="container">
-        <h1>Gerador de Cores HTML</h1>
-        
-        <span id="codigoCor">#F0F0F0</span>
-        
-        <button onclick="gerarNovaCor()">Gerar Nova Cor</button>
-    </div>
-
-    <script src="script.js"></script>
+  <div class="caixa">
+    <h1>Sorteio Caixa de Skin Care</h1>
+    <p>Clique no botão para ver quem ganhou!</p>
+    <button onclick="sortear()">Sortear</button>
+    <div id="resultado"></div>
+    <img id="produto" src="" alt="Produto vencedor" style="display:none; width:200px; margin-top:20px;">
+  </div>
+  <script src="script.js"></script>
 </body>
 </html>
